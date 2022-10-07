@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погода</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="weather">
+        <!-- <header class="header">
+            <div class="header__left">
+                <a href="main.html"><div class="header__img logo_1"></div></a>
+            </div>
+            <div class="header__center">
+                <a href="today.html"><div class="header__ref">Прогноз на день</div></a>
+                <a href="twoweeks.html"><div class="header__ref">Прогноз на неделю</div></a>
+                <div class="header__ref">Прогноз на месяц</div>
+             </div>
+            <div class="header__right">
+                <div class="header__search">Тут будет поиск</div>
+            </div>
+        </header> -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar__brand logo_1"></a>
+                
+                <div class="navbar__wrap">
+                    <ul class="navbar__menu">
+                        <li><a href="#">Сегодня</a></li>
+                        <li><a href="#">Две недели</a></li>
+                        <li><a href="#">Месяц</a></li>
+                    </ul>
+                    <form class="search__container">
+                        <input type="search" id="search" 
+                        maxlength="30" minlength="2" placeholder="Город" name="q" required>
+                        <button type="submit"></button>
+                        <!-- <span class="search__icon"></span> -->
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <div class="weather__inner">
+            <div class="current">
+                <div class="current__city">Москва</div>
+                <div class="current__description">ясно</div>
+                <div class="current__temperature">25°</div>
+            </div>
+            <div class="forecast">
+                <div class="forecast__item">
+                    <div class="forecast__time">Сейчас</div>
+                    <div class="forecast__icon icon__01d"></div>
+                    <div class="forecast__temperature">25°</div>
+                </div>
+
+                <div class="forecast__item">
+                    <div class="forecast__time">21</div>
+                    <div class="forecast__icon icon__01d"></div>
+                    <div class="forecast__temperature">13°</div>
+                </div>
+
+                <div class="forecast__item">
+                    <div class="forecast__time">0</div>
+                    <div class="forecast__icon icon__01d"></div>
+                    <div class="forecast__temperature">18°</div>
+                </div>
+
+                <div class="forecast__item">
+                    <div class="forecast__time">03</div>
+                    <div class="forecast__icon icon__04d"></div>
+                    <div class="forecast__temperature">10°</div>
+                </div>
+
+                <div class="forecast__item">
+                    <div class="forecast__time">06</div>
+                    <div class="forecast__icon icon__09d"></div>
+                    <div class="forecast__temperature">9°</div>
+                </div>
+
+                <div class="forecast__item">
+                    <div class="forecast__time">09</div>
+                    <div class="forecast__icon icon__02d"></div>
+                    <div class="forecast__temperature">5°</div>
+                </div>
+            </div>
+            <div class="details">
+
+                <div class="details__row">
+                    <div class="details__left__item">
+                        <div class="details__item feelslike">
+                            <div class="details__name">ощущается как</div>
+                            <div class="details__value">22°</div>
+                        </div>
+                    </div>
+
+                    <div class="details__right__item">
+                        <div class="details__item pressure">
+                            <div class="details__name">давление</div>
+                            <div class="details__value">765 мм. рт. ст.</div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                 <div class="details__row">
+                    <div class="details__left__item">
+                        <div class="details__item humidity">
+                            <div class="details__name">влажность</div>
+                            <div class="details__value">20%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="details__right__item">
+                        <div class="details__item wind">
+                            <div class="details__name">ветер</div>
+                            <div class="details__value">5 м/с</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="podval">
+            <div class="podval__container">
+                <div class="company__name">Независимый разработчик "Kritskiy"</div>
+                <div class="podval__wrap">
+                    <ul class="podval__menu">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Обо мне</a></li>
+                        <li><a href="#">Источники</a></li>
+                        <li><a href="#">Поддержка</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="podval__phone">+7(915)-000-00-00</a>
+            </div>
+        </footer>
+        
+    </div>
+    <script src='js/weather.js'></script>
+</body>
+</html>
