@@ -383,7 +383,9 @@ input {
       opacity: 0.6;
       transform: translateY(10px);
       animation: ani 1.1s forwards;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
 
     }
 
@@ -439,18 +441,19 @@ input {
       position:relative;
       background-color:transparent;
       width: 100%;
+      height: 134px;
       box-sizing: border-box;
       border-radius: 10px;
       z-index: 1;
-      white-space: nowrap;
+      padding: 1em;
+      white-space: break-spaces;
       pointer-events: none;
+      text-align: center;
     }
     .notification .dropdown__content a {
       color: white;
-      padding-top: 1em;
       width: 100%;
       display: flex;
-      justify-content: center;
       box-sizing: border-box;
       text-decoration: none;
       position: relative;

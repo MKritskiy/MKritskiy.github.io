@@ -6,15 +6,14 @@ function renderNotification(data){
         if (tmp == "45" || tmp == "48") {notifyText.push("Осторожно, ожидается туман!");} //Fog
         else if (tmp == "51" || tmp=="53" || tmp=="55" || tmp=="56" || tmp=="57") {notifyText.push("Осторожно, ожидается мелкий дождь!"); break;} //Drizzle
         else if (tmp == "61" || tmp=="63" || tmp=="65" || tmp=="66" || tmp=="67") {notifyText.push("Осторожно, ожидается дождь!");break;} //Rain
-        else if (tmp == "71" || tmp=="73" || tmp=="75" || tmp=="77") {notifyText.push("Осторожно, ожидается снег!"); break;} //Snow
+        else if (tmp == "71" || tmp=="73" || tmp=="75" || tmp=="77") {notifyText.push("Осторожно! Ожидается снег!"); break;} //Snow
     }
     notifyElem = document.querySelector(".dropdown__content");
+    notifyElem.innerHTML = ' ';
     if (notifyText.length==0){
         notifyElem.innerHTML = `<a href="today.html">Осадков не ожидается</a>`
     } else{ 
-        for (let i = 0; i<notifyText.lenght; i++){
-            notifyElem.innerHTML += `<a href="today.html">${notifyText[i]}</a>`;
-        }
+        notifyElem.innerHTML += `<a href="today.html">${notifyText[0]}</a>`;
     }
     
 }
