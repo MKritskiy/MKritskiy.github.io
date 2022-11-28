@@ -79,8 +79,8 @@ function renderCurrentDescription(data)
     if (tmp == "3") tmp="Пасмурно";
     if (tmp == "45" || tmp == "48") tmp="Туман";
     if (tmp == "51" || tmp=="53" || tmp=="55" || tmp=="56" || tmp=="57") tmp="Моросит";
-    if (tmp == "51" || tmp=="53" || tmp=="55" || tmp=="56" || tmp=="57") tmp="Моросит";
-
+    if (tmp == "61" || tmp=="63" || tmp=="65" || tmp=="66" || tmp=="67") tmp="Дождь"; //Rain
+    if (tmp == "71" || tmp=="73" || tmp=="75" || tmp=="77") tmp="Снег";
     let description = document.querySelector('.current__description');
     description.innerHTML = tmp;
 }
