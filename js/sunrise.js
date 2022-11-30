@@ -107,10 +107,7 @@ function renderSunriseCanvas(data) {
       sunsetsDate.push(new Date(date));
     }
   }
-  // labels.map((item, index) => {
-  //   return [sunrisesDate[index].toISOString().slice(0,-5), sunsetsDate[index].toISOString().slice(0,-5)];
-  // }),
-  //
+
   const datas = {
     datasets: [
       {

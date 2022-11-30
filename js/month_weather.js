@@ -270,7 +270,6 @@ function renderRandForecast(data) {
   }
   forecastDataContainer.innerHTML = forecasts;
 }
-function renderDetails(data) {}
 
 function renderDetailsItem(className, value) {
   container = document

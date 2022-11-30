@@ -1,4 +1,3 @@
-//const url = 'https://api.openweathermap.org/data/2.5/forecast?lat=55.7522&lon=37.6156&lang=ru&units=metric&appid=805dae8271a22bf9bda5f622b44944a0';
 const temperatureUnit = "°";
 const humidityUnit = " %";
 const pressureUnit = " мм. рт. ст.";
@@ -18,25 +17,10 @@ async function getData() {
   }
 }
 
+
 function convertPressure(value) {
   return (value / 1.33).toFixed();
 }
-
-Number.prototype.pad = function (size) {
-  var s = String(this);
-  while (s.length < (size || 2)) {
-    s = "0" + s;
-  }
-  return s;
-};
-
-function getHoursString(dateTime) {
-  let date = new Date(dateTime);
-  let hours = date.getHours().pad();
-
-  return hours;
-}
-
 function getValueWithUnit(value, unit) {
   return `${value}${unit}`;
 }
@@ -45,13 +29,13 @@ function getTemperature(value) {
   return getValueWithUnit(roundedValue, temperatureUnit);
 }
 
+
 function render(data) {
   renderCity(data);
   renderCurrentTemperature(data);
   renderCurrentDescription(data);
   renderForecast(data);
   renderDetails(data);
-  // renderDayOrNight(data)
 }
 
 function renderCity(data) {
@@ -143,25 +127,8 @@ function renderDetailsItem(className, value) {
   container.innerHTML = value;
 }
 
-function isDay(data) {
-  let sunrise = data.city.sunrise * 1000;
-  let sunset = data.city.sunset * 1000;
-
-  let now = Date.now();
-  return now > sunrise && now < sunset;
-}
-
-// function renderDayOrNight(data)
-// {
-//     let attrName = isDay(data) ? 'day' : 'night';
-//     transition();
-//     document.documentElement.setAttribute('data-theme', attrName);
-// }
 function periodicTasks() {
   setInterval(start, 6000000);
-  // setInterval(function() {
-  //     renderDayOrNight(currentData);
-  // }, 60000);
 }
 function start() {
   getData().then((data) => {
@@ -172,12 +139,7 @@ function start() {
   });
 }
 
-function transition() {
-  document.documentElement.classList.add("transition");
-  setTimeout(function () {
-    document.documentElement.classList.remove("transition");
-  }, 4000);
-}
+
 let isChecked = false;
 document.getElementById("back").style.animation = "none";
 var checkbox = document.querySelector("input[name=checkbox]");
@@ -242,6 +204,7 @@ function handleTabletOutChange(e) {
     `;
   }
 }
+
 mediaInQuery.addListener(handleTabletInChange, mediaInQuery);
 mediaOutQuery.addListener(handleTabletOutChange, mediaOutQuery);
 handleTabletInChange(mediaInQuery);

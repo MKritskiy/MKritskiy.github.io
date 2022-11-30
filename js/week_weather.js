@@ -23,13 +23,6 @@ function convertPressure(value) {
   return (value / 1.33).toFixed();
 }
 
-Number.prototype.pad = function (size) {
-  var s = String(this);
-  while (s.length < (size || 2)) {
-    s = "0" + s;
-  }
-  return s;
-};
 
 function getValueWithUnit(value, unit) {
   return `${value}${unit}`;
@@ -107,7 +100,6 @@ function renderCity(data) {
 function renderRealForecast(data) {
   let forecastDataContainer = document.querySelector(".forecast");
   let forecasts = "";
-
   for (let i = 0; i < data.daily.time.length; i++) {
     let tmp = data.daily.weathercode[i];
     let icon;
@@ -247,12 +239,12 @@ function renderRandForecast(data) {
       Math.floor(avarageMaxTemp) +
       Math.floor(
         Math.random() * averageMaxTempAmplitude * 2 - averageMaxTempAmplitude
-      ); //getTemperature(data.daily.temperature_2m_max[i]);
+      ); 
     let min_temp =
       Math.floor(avarageMinTemp) +
       Math.floor(
         Math.random() * averageMinTempAmplitude * 2 - averageMinTempAmplitude
-      ); //getTemperature(data.daily.temperature_2m_min[i]);
+      );
 
     //Дни недели
     let weekDay = getWeekDay(new Date().getDay() + 7 + i);
@@ -275,13 +267,6 @@ function renderRandForecast(data) {
   forecastDataContainer.innerHTML = forecasts;
 }
 
-function isDay(data) {
-  let sunrise = data.city.sunrise * 1000;
-  let sunset = data.city.sunset * 1000;
-
-  let now = Date.now();
-  return now > sunrise && now < sunset;
-}
 function periodicTasks() {
   setInterval(start, 6000000);
 }
