@@ -28,7 +28,20 @@ function getTemperature(value) {
   var roundedValue = value.toFixed();
   return getValueWithUnit(roundedValue, temperatureUnit);
 }
+Number.prototype.pad = function (size) {
+  var s = String(this);
+  while (s.length < (size || 2)) {
+    s = "0" + s;
+  }
+  return s;
+};
 
+function getHoursString(dateTime) {
+  let date = new Date(dateTime);
+  let hours = date.getHours().pad();
+
+  return hours;
+}
 
 function render(data) {
   renderCity(data);

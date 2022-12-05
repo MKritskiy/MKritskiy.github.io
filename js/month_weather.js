@@ -31,6 +31,13 @@ Number.prototype.pad = function (size) {
   return s;
 };
 
+function getHoursString(dateTime) {
+  let date = new Date(dateTime);
+  let hours = date.getHours().pad();
+
+  return hours;
+}
+
 function getValueWithUnit(value, unit) {
   return `${value}${unit}`;
 }
