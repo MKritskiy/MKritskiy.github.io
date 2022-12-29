@@ -12,10 +12,11 @@ function getPrecipations(data, length) {
       );
       precipations.push(
         Math.floor(
-          (precipations[i - 1] +
-            Math.random() * avgPrecipationAmplitude * 2 -
-            avgPrecipationAmplitude) *
-            100
+          Math.abs(
+            precipations[i - 1] +
+              Math.random() * avgPrecipationAmplitude * 2 -
+              avgPrecipationAmplitude
+          ) * 100
         ) / 100
       );
     }

@@ -72,7 +72,10 @@ function renderCurrentDescription(data) {
     tmp = "Моросит";
   if (tmp == "61" || tmp == "63" || tmp == "65" || tmp == "66" || tmp == "67")
     tmp = "Дождь"; //Rain
-  if (tmp == "71" || tmp == "73" || tmp == "75" || tmp == "77") tmp = "Снег";
+  if (parseInt(tmp) >= 71 && parseInt(tmp) < 80) tmp = "Снег";
+  else if (parseInt(tmp) >= 80 && parseInt(tmp) < 85) tmp = "Дождь";
+  else if (parseInt(tmp) >= 85 && parseInt(tmp) < 95) tmp = "Гроза";
+  else if (parseInt(tmp) >= 95) tmp = "Гроза";
   let description = document.querySelector(".current__description");
   description.innerHTML = tmp;
 }
@@ -84,28 +87,16 @@ function renderForecast(data) {
   for (let i = hour; i < hour + data.hourly.time.length - 6 * 24 - 10; i++) {
     let tmp = data.hourly.weathercode[i];
     let icon;
-    if (tmp == "0") icon = "01d"; //sun
-    else if (tmp == "1" || tmp == "2") icon = "02d"; //sun with clouds
-    else if (tmp == "3") icon = "03d"; //clouds
-    else if (tmp == "45" || tmp == "48") icon = "50d"; //Fog
-    else if (
-      tmp == "51" ||
-      tmp == "53" ||
-      tmp == "55" ||
-      tmp == "56" ||
-      tmp == "57"
-    )
-      icon = "10d"; //Drizzle
-    else if (
-      tmp == "61" ||
-      tmp == "63" ||
-      tmp == "65" ||
-      tmp == "66" ||
-      tmp == "67"
-    )
-      icon = "09d"; //Rain
-    else if (tmp == "71" || tmp == "73" || tmp == "75" || tmp == "77")
-      icon = "13d"; //Snow
+    if (tmp == "0") icon = "01d";
+    else if (tmp == "1" || tmp == "2") icon = "02d";
+    else if (parseInt(tmp) >= 3 && parseInt(tmp) < 45) icon = "03d";
+    else if (parseInt(tmp) >= 45 && parseInt(tmp) < 51) icon = "50d";
+    else if (parseInt(tmp) >= 51 && parseInt(tmp) < 61) icon = "10d";
+    else if (parseInt(tmp) >= 61 && parseInt(tmp) < 71) icon = "09d";
+    else if (parseInt(tmp) >= 71 && parseInt(tmp) < 80) icon = "13d";
+    else if (parseInt(tmp) >= 80 && parseInt(tmp) < 85) icon = "09d";
+    else if (parseInt(tmp) >= 85 && parseInt(tmp) < 95) icon = "13d";
+    else if (parseInt(tmp) >= 95) icon = "11d";
     let temp = getTemperature(data.hourly.temperature_2m[i]);
     let hours = i == hour ? "Сейчас" : data.hourly.time[i].slice(11);
 

@@ -116,27 +116,14 @@ function renderRealForecast(data) {
     let icon;
     if (tmp == "0") icon = "01d";
     else if (tmp == "1" || tmp == "2") icon = "02d";
-    else if (tmp == "3") icon = "03d";
-    else if (tmp == "45" || tmp == "48") icon = "50d";
-    else if (
-      tmp == "51" ||
-      tmp == "53" ||
-      tmp == "55" ||
-      tmp == "56" ||
-      tmp == "57"
-    )
-      icon = "10d";
-    else if (
-      tmp == "61" ||
-      tmp == "63" ||
-      tmp == "65" ||
-      tmp == "66" ||
-      tmp == "67"
-    )
-      icon = "09d";
-    else if (tmp == "71" || tmp == "73" || tmp == "75" || tmp == "77")
-      icon = "13d";
-
+    else if (parseInt(tmp) >= 3 && parseInt(tmp) < 45) icon = "03d";
+    else if (parseInt(tmp) >= 45 && parseInt(tmp) < 51) icon = "50d";
+    else if (parseInt(tmp) >= 51 && parseInt(tmp) < 61) icon = "10d";
+    else if (parseInt(tmp) >= 61 && parseInt(tmp) < 71) icon = "09d";
+    else if (parseInt(tmp) >= 71 && parseInt(tmp) < 80) icon = "13d";
+    else if (parseInt(tmp) >= 80 && parseInt(tmp) < 85) icon = "09d";
+    else if (parseInt(tmp) >= 85 && parseInt(tmp) < 95) icon = "13d";
+    else if (parseInt(tmp) >= 95) icon = "11d";
     let max_temp =
       i == 0
         ? "Макс " + getTemperature(data.daily.temperature_2m_max[i])
@@ -205,46 +192,14 @@ function renderRandForecast(data) {
     let icon;
     if (tmp == "0") icon = "01d";
     else if (tmp == "1" || tmp == "2") icon = "02d";
-    else if (tmp == "3" || parseInt(tmp) < parseInt("45")) icon = "03d";
-    else if (
-      tmp == "45" ||
-      (parseInt(tmp) > parseInt("45") && parseInt(tmp) < parseInt("48")) ||
-      tmp == "48" ||
-      parseInt(tmp) < parseInt("51")
-    )
-      icon = "50d";
-    else if (
-      tmp == "51" ||
-      (parseInt(tmp) > parseInt("51") && parseInt(tmp) < parseInt("53")) ||
-      tmp == "53" ||
-      (parseInt(tmp) > parseInt("53") && parseInt(tmp) < parseInt("55")) ||
-      tmp == "55" ||
-      tmp == "56" ||
-      tmp == "57" ||
-      parseInt(tmp) < parseInt("61")
-    )
-      icon = "10d";
-    else if (
-      tmp == "61" ||
-      (parseInt(tmp) > parseInt("61") && parseInt(tmp) < parseInt("63")) ||
-      tmp == "63" ||
-      (parseInt(tmp) > parseInt("63") && parseInt(tmp) < parseInt("65")) ||
-      tmp == "65" ||
-      tmp == "66" ||
-      tmp == "67" ||
-      parseInt(tmp) < parseInt("71")
-    )
-      icon = "09d";
-    else if (
-      tmp == "71" ||
-      (parseInt(tmp) > parseInt("71") && parseInt(tmp) < parseInt("73")) ||
-      tmp == "73" ||
-      (parseInt(tmp) > parseInt("73") && parseInt(tmp) < parseInt("73")) ||
-      tmp == "75" ||
-      tmp == "76" ||
-      tmp == "77"
-    )
-      icon = "13d";
+    else if (parseInt(tmp) >= 3 && parseInt(tmp) < 45) icon = "03d";
+    else if (parseInt(tmp) >= 45 && parseInt(tmp) < 51) icon = "50d";
+    else if (parseInt(tmp) >= 51 && parseInt(tmp) < 61) icon = "10d";
+    else if (parseInt(tmp) >= 61 && parseInt(tmp) < 71) icon = "09d";
+    else if (parseInt(tmp) >= 71 && parseInt(tmp) < 80) icon = "13d";
+    else if (parseInt(tmp) >= 80 && parseInt(tmp) < 85) icon = "09d";
+    else if (parseInt(tmp) >= 85 && parseInt(tmp) < 95) icon = "13d";
+    else if (parseInt(tmp) >= 95) icon = "11d";
     //Макс мин температура
     let max_temp =
       Math.floor(avarageMaxTemp) +
